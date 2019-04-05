@@ -1,0 +1,3 @@
+module Hakyll.Links
+       (
+       ) where
