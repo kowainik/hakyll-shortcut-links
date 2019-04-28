@@ -1,4 +1,4 @@
-module Hakyll.Links.Parser
+module Hakyll.Shortcut.Links.Parser
        ( parseShortcut
        ) where
 
@@ -24,13 +24,16 @@ type Parser = Parsec Void Text
 parseShortcut :: Text -> Either String (Text, Maybe Text, Maybe Text)
 parseShortcut = either (Left . show) Right . parse p ""
   where
-    shortcut = some (alphaNumChar <|> char '-')
-    opt      = char '(' *> some (noneOf [')']) <* char ')'
-    text     = char ':' *> some anySingle
+    name :: Parser Text
+    name = T.pack <$> some (alphaNumChar <|> char '-')
+
+    option, text :: Parser Text
+    option = fmap T.pack $ char '(' *> some (noneOf [')']) <* char ')'
+    text   = fmap T.pack $ char ':' *> some anySingle
 
     p :: Parser (Text, Maybe Text, Maybe Text)
     p = do
         _ <- char '@'
-        (,,) . T.pack <$> shortcut
-             <*> optional (T.pack <$> opt)
-             <*> optional (T.pack <$> text)
+        (,,) <$> name
+             <*> optional option
+             <*> optional text

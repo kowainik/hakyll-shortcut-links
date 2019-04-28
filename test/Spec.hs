@@ -6,7 +6,7 @@ import Text.Pandoc.Options (def)
 import Text.Pandoc.Readers.Markdown (readMarkdown)
 import Text.Pandoc.Writers.Markdown (writeMarkdown)
 
-import Hakyll.Links (applyAllShortcuts)
+import Hakyll.Shortcut.Links (applyAllShortcuts)
 
 
 main :: IO ()
