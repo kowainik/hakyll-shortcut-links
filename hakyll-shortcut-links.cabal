@@ -22,13 +22,13 @@ source-repository head
 
 library
   hs-source-dirs:      src
-  exposed-modules:     HakyllShortcutLinks
-                       Hakyll.Links
+  exposed-modules:     Hakyll.Links
                           Hakyll.Links.Parser
 
   build-depends:       base ^>= 4.12.0.0
                      , hakyll ^>= 4.12.5
                      , megaparsec ^>= 7.0.4
+                     , pandoc-types ^>= 1.17
                      , shortcut-links ^>= 0.4.2.1
                      , text ^>= 1.2
 
@@ -65,6 +65,8 @@ test-suite hakyll-shortcut-links-test
 
   build-depends:       base ^>= 4.12.0.0
                      , hakyll-shortcut-links
+                     , pandoc >= 2.6
+                     , text
 
 
   ghc-options:         -Wall

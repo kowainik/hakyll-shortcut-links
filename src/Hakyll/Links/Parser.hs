@@ -31,6 +31,6 @@ parseShortcut = either (Left . show) Right . parse p ""
     p :: Parser (Text, Maybe Text, Maybe Text)
     p = do
         _ <- char '@'
-        (,,) <$> T.pack <$> shortcut
+        (,,) . T.pack <$> shortcut
              <*> optional (T.pack <$> opt)
              <*> optional (T.pack <$> text)
