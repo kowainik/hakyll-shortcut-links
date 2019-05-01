@@ -21,7 +21,24 @@ import qualified Data.Text as T
 import qualified Text.Pandoc.Definition as Pandoc
 
 
-{- | Modifies links to add an extra anchor which links to the header.
+{- | Modifies links to add an extra anchor which links to the header. This is
+the most generic function. It works inside monad @m@ that has @'MonadError' [String]@ instance.
+You can use pure version of this function because there's 'MonadError' instance
+for 'Either':
+
+@
+applyShorcuts :: [([Text], Shortcut)] -> Pandoc -> Either [String] Pandoc
+@
+
+If you have your own @hakyll@ options for your custom pandoc compiler, you can
+use this function like this:
+
+@
+pandocCompilerWithTransformM
+    myHakyllReaderOptions
+    myHakyllWriterOptions
+    (applyShortcuts myShortcuts)
+@
 -}
 applyShortcuts
     :: forall m . MonadError [String] m
@@ -46,18 +63,34 @@ applyShortcuts shortcuts = bottomUpM applyLink
         [Pandoc.Str s] -> pure $ T.pack s
         _ -> throwError ["Shortcut title is not a single string element"]
 
-{- | Modifies links to add an extra anchor which links to the header.
+{- | Modifies links to add an extra anchor which links to the header. Same as
+'applyShortcuts' but passes 'allShortcuts' as an argument.
 -}
 applyAllShortcuts :: MonadError [String] m => Pandoc.Pandoc -> m Pandoc.Pandoc
 applyAllShortcuts = applyShortcuts allShortcuts
 
--- | Our own pandoc compiler which parses shortcut links automatically.
+{- | Our own pandoc compiler which parses shortcut links automatically. If you
+have the following code in you @hakyll@ website generator:
+
+@
+pandocCompiler >>= ...
+@
+
+You should be able to replace with this function and it should just work, so you
+can start using shortened links:
+
+@
+shortcutLinksCompiler >>= ...
+@
+-}
 shortcutLinksCompiler :: [([Text], Shortcut)] -> Compiler (Item String)
 shortcutLinksCompiler = pandocCompilerWithTransformM
     defaultHakyllReaderOptions
     defaultHakyllWriterOptions
     . applyShortcuts
 
--- | Our own pandoc compiler which parses shortcut links automatically.
+{- | Our own pandoc compiler which parses shortcut links automatically. Same as
+'shortcutLinksCompiler' but passes 'allShortcuts' as an argument.
+-}
 allShortcutLinksCompiler :: Compiler (Item String)
 allShortcutLinksCompiler = shortcutLinksCompiler allShortcuts
