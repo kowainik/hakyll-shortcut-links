@@ -33,7 +33,6 @@ library
                      , shortcut-links ^>= 0.4.2.1
                      , text ^>= 1.2
 
-
   ghc-options:         -Wall
                        -Wincomplete-uni-patterns
                        -Wincomplete-record-updates
@@ -63,12 +62,13 @@ test-suite hakyll-shortcut-links-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
+  other-modules:       Test.Parser
 
   build-depends:       base ^>= 4.12.0.0
                      , hakyll-shortcut-links
+                     , hspec ^>= 2.7.1
                      , pandoc >= 2.6
                      , text
-
 
   ghc-options:         -Wall
                        -threaded
