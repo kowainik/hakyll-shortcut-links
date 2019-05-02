@@ -2,7 +2,7 @@ cabal-version:       2.0
 name:                hakyll-shortcut-links
 version:             0.0.0.0
 synopsis:            Use shortcut-links in markdown file for Hakyll
-description:         Use shortcut-links in markdown file for Hakyll
+description:         Use shortcut-links in markdown file for Hakyll. See README for more details.
 homepage:            https://github.com/kowainik/hakyll-shortcut-links
 bug-reports:         https://github.com/kowainik/hakyll-shortcut-links/issues
 license:             MPL-2.0
