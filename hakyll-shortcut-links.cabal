@@ -62,11 +62,13 @@ test-suite hakyll-shortcut-links-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  other-modules:       Test.Parser
+  other-modules:       Test.Links
+                       Test.Parser
 
   build-depends:       base ^>= 4.12.0.0
                      , hakyll-shortcut-links
                      , hspec ^>= 2.7.1
+                     , mtl
                      , pandoc >= 2.6
                      , text
 
