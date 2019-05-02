@@ -5,7 +5,7 @@ module Test.Parser
 import Data.Either (isLeft)
 import Test.Hspec (Spec, describe, it, shouldBe, shouldSatisfy)
 
-import Hakyll.Shortcut.Links.Parser (parseShortcut)
+import Hakyll.ShortcutLinks.Parser (parseShortcut)
 
 
 parserSpecs :: Spec
