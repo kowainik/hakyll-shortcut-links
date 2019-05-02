@@ -7,6 +7,7 @@ import Test.Hspec (Spec, describe, it, shouldBe, shouldSatisfy)
 
 import Hakyll.Shortcut.Links.Parser (parseShortcut)
 
+
 parserSpecs :: Spec
 parserSpecs = describe "links parsing" $ do
     it "can parse name" $
