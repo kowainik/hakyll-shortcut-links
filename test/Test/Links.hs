@@ -13,7 +13,7 @@ import Text.Pandoc.Options (WrapOption (..), WriterOptions (..), def)
 import Text.Pandoc.Readers.Markdown (readMarkdown)
 import Text.Pandoc.Writers.Markdown (writeMarkdown)
 
-import Hakyll.Shortcut.Links (applyAllShortcuts)
+import Hakyll.ShortcutLinks (applyAllShortcuts)
 
 import qualified Data.Text as T
 

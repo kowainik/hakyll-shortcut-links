@@ -1,4 +1,26 @@
-module Hakyll.Shortcut.Links.Parser
+{- |
+Copyright:  (c) 2019 Kowainik
+License:    MPL-2.0
+Maintainer: Kowainik <xrom.xkov@gmail.com>
+
+This module implements parser of the shortcut links that are introduced in the
+[shortcut-links](https://hackage.haskell.org/package/shortcut-links) package.
+
+The markdown example of the shortcut link:
+
+@
+[This project]\(\@github(Kowainik):hakyll-shortcut-links)
+@
+
+The implemented parser should parse the @url@ part of the link.
+In this example the parsed links would look like this:
+
+>>> parseShortcut "@github(Kowainik):hakyll-shortcut-links"
+Right ("github", Just "Kowainik", Just "hakyll-shortcut-links")
+
+-}
+
+module Hakyll.ShortcutLinks.Parser
        ( parseShortcut
        ) where
 
@@ -12,7 +34,7 @@ import qualified Data.Text as T
 
 type Parser = Parsec Void Text
 
-{- | Parse a shortcut link. Allowed formats:
+{- | Parses a shortcut link. Allowed formats:
 
 @
 \@name
