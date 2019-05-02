@@ -27,6 +27,8 @@ linksSpec = describe "shortcuts expanding" $ do
     it "fails on invalid shortcut" $ do
         expandShortcuts mdError1 `shouldSatisfy` isLeft
         expandShortcuts mdError2 `shouldSatisfy` isLeft
+    it "fails on multiple words without text" $ do
+        expandShortcuts mdError3 `shouldSatisfy` isLeft
     it "idempotence: doesn't not touch content if it doesn't have shorcuts" $ do
         expandShortcuts md1After `shouldBe` Right md1After
         expandShortcuts md2After `shouldBe` Right md2After
@@ -47,18 +49,19 @@ md1After  = "This is [Hello](https://github.com/kowainik)"
 
 md2Before, md2After :: Text
 md2Before = T.intercalate "\n"
-    [ "Link 1: [Hello](@github:kowainik)"
+    [ "Link 1: [Hello World](@github:kowainik)"
     , "Link 2: [Ordinary link](https://stackoverflow.com/)"
     , "Link 3: [kowainik/hakyll-shortcut-links](@github)"
     , "Link 4: [summoner](@hackage)"
     ]
 md2After = T.intercalate "\n"
-    [ "Link 1: [Hello](https://github.com/kowainik)"
+    [ "Link 1: [Hello World](https://github.com/kowainik)"
     , "Link 2: [Ordinary link](https://stackoverflow.com/)"
     , "Link 3: [kowainik/hakyll-shortcut-links](https://github.com/kowainik/hakyll-shortcut-links)"
     , "Link 4: [summoner](https://hackage.haskell.org/package/summoner)"
     ]
 
-mdError1, mdError2 :: Text
+mdError1, mdError2, mdError3 :: Text
 mdError1 = "This is invalid [shortcut](@unknown)"
 mdError2 = "Another invalid [`shortcut`](@github)"
+mdError3 = "Strange link [many words](@github)"
