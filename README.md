@@ -1,9 +1,9 @@
 # hakyll-shortcut-links
 
 ![scissors](https://user-images.githubusercontent.com/4276606/56942330-9bf93d80-6b4c-11e9-8286-3cb98eb0c94f.png)
-[![Hackage](https://img.shields.io/hackage/v/hakyll-shortcut-links.svg)](https://hackage.haskell.org/package/hakyll-shortcut-links)
+[![Hackage](https://img.shields.io/hackage/v/hakyll-shortcut-links.svg?logo=haskell)](https://hackage.haskell.org/package/hakyll-shortcut-links)
 [![MPL-2.0 license](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](LICENSE)
-[![Build status](https://secure.travis-ci.org/kowainik/hakyll-shortcut-links.svg)](https://travis-ci.org/kowainik/hakyll-shortcut-links)
+[![Build status](https://img.shields.io/travis/kowainik/hakyll-shortcut-links.svg?logo=travis)](https://travis-ci.org/kowainik/hakyll-shortcut-links)
 
 This library adds the support of the
 [`shortcut-links`](https://hackage.haskell.org/package/shortcut-links) library
