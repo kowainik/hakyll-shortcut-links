@@ -15,6 +15,7 @@ build-type:          Simple
 extra-doc-files:     README.md
                    , CHANGELOG.md
 tested-with:         GHC == 8.6.5
+                   , GHC == 8.8.1
 
 source-repository head
   type:                git
@@ -31,6 +32,8 @@ common common-options
                        -fhide-source-paths
                        -Wmissing-export-lists
                        -Wpartial-fields
+  if impl(ghc >= 8.8.1)
+    ghc-options:       -Wmissing-deriving-strategies
 
   default-extensions:  ConstraintKinds
                        DeriveGeneric
