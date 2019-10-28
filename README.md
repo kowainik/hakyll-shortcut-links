@@ -115,15 +115,15 @@ As you can see by the diff the only actual change needed for that was replacing
 - Link to a user :
   | Shortcut | Plain markdown |
   | ------------------------------------- | ------------------------------------------------ |
-  | `[kowainik](@github)` | `[kowainik](https://github.com/kowainik)` |
-  | `[kowainik](@github(kowainik))` | `[kowainik](https://github.com/kowainik)` |
+  | `[foo](@github)` | `[kowainik](https://github.com/foo)` |
+  | `[foo Github profile](@github(foo))` | `[foo](https://github.com/foo)` |
 
 - Link to a repository :
 
-  | Shortcut                                                   | Plain markdown                                                               |
-  | ---------------------------------------------------------- | ---------------------------------------------------------------------------- |
-  | `[hakyll-shortcut-links](@github:kowainik)`                | `[hakyll-shortcut-links](https://github.com/kowainik/hakyll-shortcut-links)` |
-  | `[Github Source](@github(kowainik):hakyll-shortcut-links)` | `[Github Source](https://github.com/kowainik/hakyll-shortcut-links)`         |
+  | Shortcut                            | Plain markdown                                |
+  | ----------------------------------- | --------------------------------------------- |
+  | `[bar](@github:foo)`                | `[bar](https://github.com/foo/bar)`           |
+  | `[Github Source](@github(foo):bar)` | `[Github Source](https://github.com/foo/bar)` |
 
 ## Acknowledgement
 

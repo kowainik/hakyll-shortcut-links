@@ -16,15 +16,15 @@ Here is a few examples of the `@github` shortcut:
 - Link to a user:
   | Shortcut | Plain markdown |
   | ------------------------------------- | ------------------------------------------------ |
-  | `[kowainik](@github)` | `[kowainik](https://github.com/kowainik)` |
-  | `[kowainik Github profile](@github(kowainik))` | `[kowainik Github profile](https://github.com/kowainik)` |
+  | `[foo](@github)` | `[foo](https://github.com/foo)` |
+  | `[foo Github profile](@github(foo))` | `[foo Github profile](https://github.com/foo)` |
 
 - Link to a repository:
 
   | Shortcut                                                   | Plain markdown                                                               |
   | ---------------------------------------------------------- | ---------------------------------------------------------------------------- |
-  | `[hakyll-shortcut-links](@github:kowainik)`                | `[hakyll-shortcut-links](https://github.com/kowainik/hakyll-shortcut-links)` |
-  | `[Github Source](@github(kowainik):hakyll-shortcut-links)` | `[Github Source](https://github.com/kowainik/hakyll-shortcut-links)`         |
+  | `[bar](@github:foo)`                | `[bar](https://github.com/foo/bar)` |
+  | `[Github Source](@github(foo):bar)` | `[Github Source](https://github.com/foo/bar)`         |
 -}
 
 module Hakyll.ShortcutLinks
