@@ -113,34 +113,17 @@ As you can see by the diff the only actual change needed for that was replacing
 #### Examples of the `@github` shortcut :
 
 - Link to a user :
-  ```
-  [kowainik](@github:kowainik)
-  [kowainik](https://github.com/kowainik)
-  ```
-  ```
-  [kowainik](@github(kowainik))
-  [kowainik](https://github.com/kowainik)
-  ```
-  ```
-  [kowainik](@github)
-  [kowainik](https://github.com/kowainik)
-  ```
+  | Shortcut | Plain markdown |
+  | ------------------------------------- | ------------------------------------------------ |
+  | `[kowainik](@github)` | `[kowainik](https://github.com/kowainik)` |
+  | `[kowainik](@github(kowainik))` | `[kowainik](https://github.com/kowainik)` |
+
 - Link to a repository :
 
-  ```
-  [hakyll-shortcut-links](@github:kowainik)
-  [hakyll-shortcut-links](https://github.com/kowainik/hakyll-shortcut-links)
-  ```
-
-  ```
-  [hakyll-shortcut-links](@github(kowainik))
-  [hakyll-shortcut-links](https://github.com/kowainik/hakyll-shortcut-links)
-  ```
-
-  ```
-  [kowainik/hakyll-shortcut-links\](@github)
-  [hakyll-shortcut-links](https://github.com/kowainik/hakyll-shortcut-links)
-  ```
+  | Shortcut                                                   | Plain markdown                                                               |
+  | ---------------------------------------------------------- | ---------------------------------------------------------------------------- |
+  | `[hakyll-shortcut-links](@github:kowainik)`                | `[hakyll-shortcut-links](https://github.com/kowainik/hakyll-shortcut-links)` |
+  | `[Github Source](@github(kowainik):hakyll-shortcut-links)` | `[Github Source](https://github.com/kowainik/hakyll-shortcut-links)`         |
 
 ## Acknowledgement
 
