@@ -110,7 +110,7 @@ Here is an example of the pull request that introduces the
 As you can see by the diff the only actual change needed for that was replacing
 `pandocCompiler` with `allShortcutLinksCompiler`.
 
-#### Examples of the `@github` shortcut :
+#### Examples of the `@github` shortcut:
 
 - Link to a user :
   | Shortcut | Plain markdown |
