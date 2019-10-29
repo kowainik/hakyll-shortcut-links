@@ -28,6 +28,7 @@ library functions:
 Here is going to be a link to the [hakyll-shortcut-links](http://hackage.haskell.org/package/hakyll-shortcut-links) library on Hackage.
 And another link to the [GitHub sources](https://github.com/kowainik/hakyll-shortcut-links).
 ```
+
 For the full list of the supported shortcuts, you can check
 [ShortcutLinks.All module](https://hackage.haskell.org/package/shortcut-links/docs/ShortcutLinks-All.html)
 of the `shortcut-links` library.
@@ -104,10 +105,25 @@ Hakyll is going to build full URLs for them. Happy coding!
 Here is an example of the pull request that introduces the
 `hakyll-shortcut-links` library into the scope:
 
-* [Some Hakyll website](https://github.com/vrom911/vrom911.github.io/pull/32)
+- [Some Hakyll website](https://github.com/vrom911/vrom911.github.io/pull/32)
 
 As you can see by the diff the only actual change needed for that was replacing
 `pandocCompiler` with `allShortcutLinksCompiler`.
+
+#### Examples of the `@github` shortcut:
+
+- Link to a user :
+  | Shortcut | Plain markdown |
+  | ------------------------------------- | ------------------------------------------------ |
+  | `[foo](@github)` | `[kowainik](https://github.com/foo)` |
+  | `[foo Github profile](@github(foo))` | `[foo](https://github.com/foo)` |
+
+- Link to a repository :
+
+  | Shortcut                            | Plain markdown                                |
+  | ----------------------------------- | --------------------------------------------- |
+  | `[bar](@github:foo)`                | `[bar](https://github.com/foo/bar)`           |
+  | `[Github Source](@github(foo):bar)` | `[Github Source](https://github.com/foo/bar)` |
 
 ## Acknowledgement
 
