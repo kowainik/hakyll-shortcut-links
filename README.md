@@ -113,10 +113,11 @@ As you can see by the diff the only actual change needed for that was replacing
 #### Examples of the `@github` shortcut:
 
 - Link to a user :
-  | Shortcut | Plain markdown |
-  | ------------------------------------- | ------------------------------------------------ |
-  | `[foo](@github)` | `[kowainik](https://github.com/foo)` |
-  | `[foo Github profile](@github(foo))` | `[foo](https://github.com/foo)` |
+
+  | Shortcut                             | Plain markdown                       |
+  | ------------------------------------ | ------------------------------------ |
+  | `[foo](@github)`                     | `[kowainik](https://github.com/foo)` |
+  | `[foo Github profile](@github(foo))` | `[foo](https://github.com/foo)`      |
 
 - Link to a repository :
 
