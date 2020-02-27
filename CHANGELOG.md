@@ -7,6 +7,8 @@ The changelog is available [on GitHub][2].
 
 * [#16](https://github.com/kowainik/hakyll-shortcut-links/issues/16):
   Support GHC-8.8.2. Update `hakyll` and `pandoc` bounds.
+* [#23](https://github.com/kowainik/hakyll-shortcut-links/issues/23):
+  Move CI to GitHub Actions.
 
 ## 0.0.0.0 — May 2, 2019
 
