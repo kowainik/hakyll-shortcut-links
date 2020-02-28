@@ -63,9 +63,9 @@ library
                           Hakyll.ShortcutLinks.Parser
 
   build-depends:       hakyll ^>= 4.13
-                     , megaparsec ^>= 7.0.4
                      , mtl ^>= 2.2.2
                      , pandoc-types ^>= 1.20
+                     , parsec ^>= 3.1.14
                      , shortcut-links ^>= 0.5.0.0
                      , text ^>= 1.2
 
