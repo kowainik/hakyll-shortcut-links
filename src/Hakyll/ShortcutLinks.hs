@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleContexts #-}
 
 {- |
-Copyright:  (c) 2019 Kowainik
+Copyright:  (c) 2019-2020 Kowainik
 License:    MPL-2.0
 Maintainer: Kowainik <xrom.xkov@gmail.com>
 
@@ -65,7 +65,6 @@ import Hakyll.ShortcutLinks.Parser (parseShortcut)
 import ShortcutLinks as Sh
 import ShortcutLinks.All
 
-import qualified Data.Text as T
 import qualified Text.Pandoc.Definition as Pandoc
 
 
@@ -120,10 +119,10 @@ applyShortcuts
 applyShortcuts shortcuts = bottomUpM applyLink
   where
     applyLink :: Pandoc.Inline -> m Pandoc.Inline
-    applyLink l@(Pandoc.Link attr inl (url, title)) = case parseShortcut $ T.pack url of
+    applyLink l@(Pandoc.Link attr inl (url, title)) = case parseShortcut url of
         Right (name, option, text) -> maybe (checkTitle inl) pure text >>= \txtTitle ->
             case useShortcutFrom shortcuts name option txtTitle of
-                Success link -> pure $ Pandoc.Link attr inl (T.unpack link, title)
+                Success link -> pure $ Pandoc.Link attr inl (link, title)
                 Warning ws _ -> throwError ws
                 Failure msg  -> throwError [msg]
         Left _ -> pure l  -- the link is not shortcut
@@ -132,7 +131,7 @@ applyShortcuts shortcuts = bottomUpM applyLink
     checkTitle :: [Pandoc.Inline] -> m Text
     checkTitle = \case
         [] -> throwError ["Empty shortcut link title arguments"]
-        [Pandoc.Str s] -> pure $ T.pack s
+        [Pandoc.Str s] -> pure s
         _ -> throwError ["Shortcut title is not a single string element"]
 
 {- |  Modifies markdown shortcut links to the extended version and returns

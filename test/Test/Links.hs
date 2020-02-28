@@ -40,25 +40,25 @@ expandShortcuts :: Text -> Either String Text
 expandShortcuts txt = first show $ runPure $ do
     md <- readMarkdown def txt
     case applyAllShortcuts md of
-        Left errs   -> throwError $ PandocSomeError $ unlines errs
+        Left errs   -> throwError $ PandocSomeError $ T.pack $ unlines errs
         Right newMd -> writeMarkdown def{ writerWrapText = WrapPreserve } newMd
 
 md1Before, md1After :: Text
 md1Before = "This is [Hello](@github:kowainik)"
-md1After  = "This is [Hello](https://github.com/kowainik)"
+md1After  = "This is [Hello](https://github.com/kowainik)\n"
 
 md2Before, md2After :: Text
-md2Before = T.intercalate "\n"
+md2Before = T.unlines
     [ "Link 1: [Hello World](@github:kowainik)"
     , "Link 2: [Ordinary link](https://stackoverflow.com/)"
     , "Link 3: [kowainik/hakyll-shortcut-links](@github)"
-    , "Link 4: [summoner](@hackage)"
+    , "Link 4: [summoner](@hackage). Check text."
     ]
-md2After = T.intercalate "\n"
+md2After = T.unlines
     [ "Link 1: [Hello World](https://github.com/kowainik)"
     , "Link 2: [Ordinary link](https://stackoverflow.com/)"
     , "Link 3: [kowainik/hakyll-shortcut-links](https://github.com/kowainik/hakyll-shortcut-links)"
-    , "Link 4: [summoner](https://hackage.haskell.org/package/summoner)"
+    , "Link 4: [summoner](https://hackage.haskell.org/package/summoner). Check text."
     ]
 
 mdError1, mdError2, mdError3 :: Text
