@@ -8,6 +8,8 @@ The changelog is available [on GitHub][2].
 * [#16](https://github.com/kowainik/hakyll-shortcut-links/issues/16):
   Support GHC-8.8.2. Update `hakyll` and `pandoc` bounds.
   Remove support of GHC-8.6.5.
+* [#21](https://github.com/kowainik/hakyll-shortcut-links/issues/21):
+  Use `parsec` instead of `megaparsec`.
 * [#23](https://github.com/kowainik/hakyll-shortcut-links/issues/23):
   Move CI to GitHub Actions.
 

@@ -25,14 +25,13 @@ module Hakyll.ShortcutLinks.Parser
        ) where
 
 import Data.Text (Text)
-import Data.Void (Void)
-import Text.Megaparsec (Parsec, anySingle, noneOf, optional, parse, some, (<|>))
-import Text.Megaparsec.Char (alphaNumChar, char)
+import Text.Parsec (Parsec, anyChar, many1, noneOf, optionMaybe, parse, (<|>))
+import Text.Parsec.Char (alphaNum, char)
 
 import qualified Data.Text as T
 
 
-type Parser = Parsec Void Text
+type Parser = Parsec Text ()
 
 {- | Parses a shortcut link. Allowed formats:
 
@@ -47,15 +46,15 @@ parseShortcut :: Text -> Either String (Text, Maybe Text, Maybe Text)
 parseShortcut = either (Left . show) Right . parse p ""
   where
     name :: Parser Text
-    name = T.pack <$> some (alphaNumChar <|> char '-')
+    name = T.pack <$> many1 (alphaNum <|> char '-')
 
     option, text :: Parser Text
-    option = fmap T.pack $ char '(' *> some (noneOf [')']) <* char ')'
-    text   = fmap T.pack $ char ':' *> some anySingle
+    option = fmap T.pack $ char '(' *> many1 (noneOf [')']) <* char ')'
+    text   = fmap T.pack $ char ':' *> many1 anyChar
 
     p :: Parser (Text, Maybe Text, Maybe Text)
     p = do
         _ <- char '@'
         (,,) <$> name
-             <*> optional option
-             <*> optional text
+             <*> optionMaybe option
+             <*> optionMaybe text
