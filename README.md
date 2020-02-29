@@ -117,7 +117,7 @@ As you can see by the diff the only actual change needed for that was replacing
   | Shortcut                             | Plain markdown                       |
   | ------------------------------------ | ------------------------------------ |
   | `[foo](@github)`                     | `[foo](https://github.com/foo)` |
-  | `[foo Github profile](@github(foo))` | `[foo](https://github.com/foo)`      |
+  | `[foo Github profile](@github(foo))` | `[foo Github profile](https://github.com/foo)`      |
 
 - Link to a repository :
 
