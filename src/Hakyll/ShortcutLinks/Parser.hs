@@ -1,5 +1,5 @@
 {- |
-Copyright:  (c) 2019-2020 Kowainik
+Copyright:  (c) 2019-2021 Kowainik
 License:    MPL-2.0
 Maintainer: Kowainik <xrom.xkov@gmail.com>
 

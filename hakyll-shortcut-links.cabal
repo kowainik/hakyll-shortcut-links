@@ -9,7 +9,7 @@ license:             MPL-2.0
 license-file:        LICENSE
 author:              Veronika Romashkina, Dmitrii Kovanikov
 maintainer:          Kowainik <xrom.xkov@gmail.com>
-copyright:           2019-2020 Kowainik
+copyright:           2019-2021 Kowainik
 category:            Web, Hakyll, Markdown
 build-type:          Simple
 extra-doc-files:     README.md
@@ -38,6 +38,10 @@ common common-options
   if impl(ghc >= 8.8)
     ghc-options:       -Wmissing-deriving-strategies
                        -Werror=missing-deriving-strategies
+                       -fwrite-ide-info
+                       -hiedir=../.hie
+  if impl(ghc >= 8.10)
+    ghc-options:       -Wunused-packages
 
   default-extensions:  ConstraintKinds
                        DeriveGeneric
