@@ -21,7 +21,7 @@ source-repository head
   location:            https://github.com/kowainik/hakyll-shortcut-links.git
 
 common common-options
-  build-depends:       base >= 4.13.0.0 && < 4.14
+  build-depends:       base >= 4.13.0.0 && < 4.15
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities
@@ -64,7 +64,7 @@ library
 
   build-depends:       hakyll ^>= 4.13
                      , mtl ^>= 2.2.2
-                     , pandoc-types ^>= 1.20
+                     , pandoc-types >= 1.20 && < 1.23
                      , parsec ^>= 3.1.14
                      , shortcut-links ^>= 0.5.0.0
                      , text ^>= 1.2
@@ -80,7 +80,7 @@ test-suite hakyll-shortcut-links-test
   build-depends:       hakyll-shortcut-links
                      , hspec ^>= 2.7.1
                      , mtl
-                     , pandoc ^>= 2.9
+                     , pandoc >= 2.9 && < 2.12
                      , text
 
   ghc-options:         -threaded
