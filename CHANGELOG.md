@@ -3,6 +3,10 @@
 `hakyll-shortcut-links` uses [PVP Versioning][1].
 The changelog is available [on GitHub][2].
 
+## 0.1.0.1 — Jan 12, 2021
+
+* Support GHC-8.10.3.
+
 ## 0.1.0.0 — Feb 29, 2020
 
 * [#16](https://github.com/kowainik/hakyll-shortcut-links/issues/16):
