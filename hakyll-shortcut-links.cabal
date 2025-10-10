@@ -1,6 +1,6 @@
-cabal-version:       2.4
+cabal-version:       3.8
 name:                hakyll-shortcut-links
-version:             0.1.0.2
+version:             0.1.1.0
 synopsis:            Use shortcut-links in markdown file for Hakyll
 description:         Use shortcut-links in markdown file for Hakyll. See README for more details.
 homepage:            https://github.com/kowainik/hakyll-shortcut-links
@@ -9,20 +9,21 @@ license:             MPL-2.0
 license-file:        LICENSE
 author:              Veronika Romashkina, Dmitrii Kovanikov
 maintainer:          Kowainik <xrom.xkov@gmail.com>
-copyright:           2019-2021 Kowainik
+copyright:           2019-2025 Kowainik
 category:            Web, Hakyll, Markdown
 build-type:          Simple
 extra-doc-files:     README.md
                      CHANGELOG.md
 tested-with:         GHC == 8.8.4
                      GHC == 8.10.7
+                     GHC == 9.6.7
 
 source-repository head
   type:                git
   location:            https://github.com/kowainik/hakyll-shortcut-links.git
 
 common common-options
-  build-depends:       base >= 4.13.0.0 && < 4.15
+  build-depends:       base >= 4.13.0.0 && < 5
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities
@@ -67,12 +68,12 @@ library
   exposed-modules:     Hakyll.ShortcutLinks
                           Hakyll.ShortcutLinks.Parser
 
-  build-depends:       hakyll >= 4.13 && < 4.16
-                     , mtl ^>= 2.2.2
-                     , pandoc-types >= 1.20 && < 1.23
+  build-depends:       hakyll >= 4.13
+                     , mtl >= 2.2.2 && < 2.4
+                     , pandoc-types >= 1.20 && < 1.24
                      , parsec ^>= 3.1.14
-                     , shortcut-links ^>= 0.5.0.0
-                     , text ^>= 1.2
+                     , shortcut-links ^>= 0.5
+                     , text >= 1.2 && < 2.2
 
 test-suite hakyll-shortcut-links-test
   import:              common-options
@@ -83,9 +84,9 @@ test-suite hakyll-shortcut-links-test
                        Test.Parser
 
   build-depends:       hakyll-shortcut-links
-                     , hspec ^>= 2.9
+                     , hspec >= 2.9 && < 2.12
                      , mtl
-                     , pandoc >= 2.9 && < 2.17
+                     , pandoc >= 2.9
                      , text
 
   ghc-options:         -threaded
